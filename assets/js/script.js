@@ -1,6 +1,7 @@
-var timerNum = document.querySelector("#timerDigit")
-var timeLimit = 60
+var timerNum = document.querySelector("#timer-digit")
+var homeScreen = document.querySelector(".home-screen")
 
+var timeLimit = 60
 
 
 
@@ -26,5 +27,5 @@ function startGame() {
 
     beginCountdown()
 
-    
+    homeScreen.setAttribute ("style", "display: none;")
 }

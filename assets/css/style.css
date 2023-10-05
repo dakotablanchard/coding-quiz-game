@@ -16,28 +16,28 @@ header {
     align-items: center;
 }
 
-.homeScreen {
+.home-screen {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.homeScreen > h1 {
+.home-screen > h1 {
     font-size: 50px;
 }
 
-.homeScreen > p {
+.home-screen > p {
     font-size: 30px;
 }
 
-#startButton {
+#start-button {
     margin: 20px;
     padding: 10px;
     font-size: 30px;
     border-radius: 13px;
 }
 
-#startButton:hover {
+#start-button:hover {
     background-color: rgb(77, 77, 77);
     cursor: pointer;
 }
