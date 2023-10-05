@@ -1,0 +1,43 @@
+*{
+    margin: 5px;
+    padding: 0;
+    background-color: rgb(56, 56, 56);
+    color: rgb(214, 214, 214);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 35px;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+}
+
+.homeScreen {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.homeScreen > h1 {
+    font-size: 50px;
+}
+
+.homeScreen > p {
+    font-size: 30px;
+}
+
+#startButton {
+    margin: 20px;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 13px;
+}
+
+#startButton:hover {
+    background-color: rgb(77, 77, 77);
+    cursor: pointer;
+}
