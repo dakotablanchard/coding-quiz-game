@@ -68,19 +68,14 @@ var multipleChoice = document.querySelector(".multiple-choice")
 
 var timeLimit = 60
 var score = 0
+var countdown
 
+var questionTitle
 
-
-
-function beginCountdown() { 
-    var countdown = setInterval(function() {
-        timerNum.textContent = timeLimit
-        timeLimit--
-
-        if (timeLimit < 0)
-        clearInterval(countdown);
-    }, 1000)
-}
+var choiceA
+var choiceB
+var choiceC
+var choiceD
 
 function startGame() {
     beginCountdown()
@@ -88,99 +83,26 @@ function startGame() {
     homeScreen.setAttribute ("style", "display: none;")
 
     multipleChoiceQuestions()
+}
 
+function beginCountdown() { 
+        countdown = setInterval(function() {
+        timerNum.textContent = timeLimit
+        timeLimit--
+
+        if (timeLimit <= 0) {
+        clearInterval(countdown)
+        endGame()
+        }
+    }, 1000)
+    
 }
 
 function multipleChoiceQuestions() {
-    // Displays title of question
-    var questionTitle = document.createElement("h2")
-        questionTitle.setAttribute("class", "question-title")
-        questionTitle.textContent = questionArray[questionNumber].question
-        multipleChoice.appendChild(questionTitle)
-
-    // Creates multiple choice buttons 
-
-        for (var i = 0; i < questionArray[questionNumber].choices.length; i++) {
-        var choiceButtons = document.createElement("button")
-        choiceButtons.setAttribute("class", "choice-buttons")
-        choiceButtons.setAttribute("id", "button" + i)
-        choiceButtons.textContent = questionArray[questionNumber].choices[i]
-        multipleChoice.appendChild(choiceButtons)
-    }
     
-    // Targeting each individual multiple choice button:
-    var choiceA = document.querySelector('#button0')
-    var choiceB = document.querySelector('#button1')
-    var choiceC = document.querySelector('#button2')
-    var choiceD = document.querySelector('#button3')
-    
-    // Adding event listeners for each button on click:
-    choiceA.addEventListener('click', function(event) {
-
-        if (event.target.textContent === questionArray[questionNumber].answer) {
-            //CORRECT
-                // Adds 10 points to score:
-                score = score + 10
-                
-                // Replacing text content of question and choices with next set:
-    
-                if (questionNumber < 9) {
-                questionNumber = questionNumber + 1
-                questionTitle.textContent = questionArray[questionNumber].question
-                
-                choiceA.textContent = questionArray[questionNumber].choices[0]
-                choiceB.textContent = questionArray[questionNumber].choices[1]
-                choiceC.textContent = questionArray[questionNumber].choices[2]
-                choiceD.textContent = questionArray[questionNumber].choices[3]
-                } else {
-                    endGame()
-                }
-    
-            } else {
-            //INCORRECT
-                //Deducts 5 seconds from timer if answer is wrong:
-                timeLimit = timeLimit - 5 
-            }
-    })
-    
-    choiceB.addEventListener('click', function(event) {
-
-        if (event.target.textContent === questionArray[questionNumber].answer) {
-            //CORRECT
-                // Adds 10 points to score:
-                score = score + 10
-                
-                // Replacing text content of question and choices with next set:
-    
-                if (questionNumber < 9) {
-                questionNumber = questionNumber + 1
-                questionTitle.textContent = questionArray[questionNumber].question
-                
-                choiceA.textContent = questionArray[questionNumber].choices[0]
-                choiceB.textContent = questionArray[questionNumber].choices[1]
-                choiceC.textContent = questionArray[questionNumber].choices[2]
-                choiceD.textContent = questionArray[questionNumber].choices[3]
-                } else {
-                    endGame()
-                }
-    
-            } else {
-            //INCORRECT
-                //Deducts 5 seconds from timer if answer is wrong:
-                timeLimit = timeLimit - 5 
-            }
-    })
-    
-    choiceC.addEventListener('click', function(event) {
-
-        if (event.target.textContent === questionArray[questionNumber].answer) {
-        //CORRECT
-            // Adds 10 points to score:
-            score = score + 10
-            
-            // Replacing text content of question and choices with next set:
-
-            if (questionNumber < 9) {
+    // Replacing text content of question and choices with next set:
+    function nextQuestion() {
+        if (questionNumber < 9) {
             questionNumber = questionNumber + 1
             questionTitle.textContent = questionArray[questionNumber].question
             
@@ -191,12 +113,80 @@ function multipleChoiceQuestions() {
             } else {
                 endGame()
             }
+    }
 
-        } else {
-        //INCORRECT
-            //Deducts 5 seconds from timer if answer is wrong:
-            timeLimit = timeLimit - 5 
-        }
+    // Displays title of question:
+        questionTitle = document.createElement("h2")
+        questionTitle.setAttribute("class", "question-title")
+        questionTitle.textContent = questionArray[questionNumber].question
+        multipleChoice.appendChild(questionTitle)
+
+    // Creates multiple choice buttons:
+        for (var i = 0; i < questionArray[questionNumber].choices.length; i++) {
+        var choiceButtons = document.createElement("button")
+        choiceButtons.setAttribute("class", "choice-buttons")
+        choiceButtons.setAttribute("id", "button" + i)
+        choiceButtons.textContent = questionArray[questionNumber].choices[i]
+        multipleChoice.appendChild(choiceButtons)
+    }
+
+
+    // Targeting each individual multiple choice button:
+    choiceA = document.querySelector('#button0')
+    choiceB = document.querySelector('#button1')
+    choiceC = document.querySelector('#button2')
+    choiceD = document.querySelector('#button3')
+    
+    // Adding event listeners for each button on click:
+    choiceA.addEventListener('click', function(event) {
+
+        if (event.target.textContent === questionArray[questionNumber].answer) {
+            //CORRECT
+                // Adds 10 points to score:
+                score = score + 10
+                nextQuestion()
+
+            } else {
+            //INCORRECT
+                
+                //Deducts 5 seconds from timer if answer is wrong:
+                timeLimit = timeLimit - 5 
+                nextQuestion()
+            }
+    })
+    
+    choiceB.addEventListener('click', function(event) {
+
+        if (event.target.textContent === questionArray[questionNumber].answer) {
+            //CORRECT
+                // Adds 10 points to score:
+                score = score + 10
+                nextQuestion()
+
+            } else {
+            //INCORRECT
+                
+                //Deducts 5 seconds from timer if answer is wrong:
+                timeLimit = timeLimit - 5 
+                nextQuestion()
+            }
+    })
+    
+    choiceC.addEventListener('click', function(event) {
+
+        if (event.target.textContent === questionArray[questionNumber].answer) {
+            //CORRECT
+                // Adds 10 points to score:
+                score = score + 10
+                nextQuestion()
+
+            } else {
+            //INCORRECT
+                
+                //Deducts 5 seconds from timer if answer is wrong:
+                timeLimit = timeLimit - 5 
+                nextQuestion()
+            }
     })
     
     choiceD.addEventListener('click', function(event) {
@@ -205,30 +195,46 @@ function multipleChoiceQuestions() {
             //CORRECT
                 // Adds 10 points to score:
                 score = score + 10
-                
-                // Replacing text content of question and choices with next set:
-    
-                if (questionNumber < 9) {
-                questionNumber = questionNumber + 1
-                questionTitle.textContent = questionArray[questionNumber].question
-                
-                choiceA.textContent = questionArray[questionNumber].choices[0]
-                choiceB.textContent = questionArray[questionNumber].choices[1]
-                choiceC.textContent = questionArray[questionNumber].choices[2]
-                choiceD.textContent = questionArray[questionNumber].choices[3]
-                } else {
-                    endGame()
-                }
-    
+                nextQuestion()
+
             } else {
             //INCORRECT
+                
                 //Deducts 5 seconds from timer if answer is wrong:
                 timeLimit = timeLimit - 5 
+                nextQuestion()
             }
-    })
+        })
+
 }
 
 function endGame() {
-    console.log("End of game")
+
+    clearInterval(countdown)
+    timeLimit = 60
+    timerNum.textContent = 60
+
+    choiceA.remove()
+    choiceB.remove()
+    choiceC.remove()
+    choiceD.remove()
+    questionTitle.textContent = "Your score is: " + score
+
+    var returnHome = document.createElement("button")
+    returnHome.setAttribute("class", "choice-buttons")
+    returnHome.textContent = "Return Home"
+    multipleChoice.appendChild(returnHome)
+
+    returnHome.addEventListener("click", function(event) {
+        resetGame()
+    })
 }
 
+function resetGame() {
+    questionNumber = 0
+    score = 0
+
+    multipleChoice.textContent = ""
+
+    homeScreen.setAttribute("style", "flex")
+}

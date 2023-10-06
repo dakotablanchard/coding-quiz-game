@@ -9,15 +9,19 @@ Timed coding quiz that saves high scores
 
 
 <!-- ///////////////////////////////
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
+GIVEN I am taking a code quiz 
+WHEN I click the start button 
+THEN a timer starts and I am presented with a question ✅  
+
+WHEN I answer a question 
+THEN I am presented with another question ✅
+
+WHEN I answer a question incorrectly 
+THEN time is subtracted from the clock ✅
+
 WHEN all questions are answered or the timer reaches 0
-THEN the game is over
+THEN the game is over ✅
+
 WHEN the game is over
 THEN I can save my initials and score -->
 
@@ -32,3 +36,5 @@ https://www.w3schools.com/js/js_json.asp
 https://stackoverflow.com/questions/43118645/get-length-of-nested-javascript-object
 
 https://stackoverflow.com/questions/60370557/how-can-you-deduct-10-seconds-from-a-running-timer-in-javascript
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
