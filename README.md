@@ -31,3 +31,4 @@ https://www.w3schools.com/js/js_json.asp
 
 https://stackoverflow.com/questions/43118645/get-length-of-nested-javascript-object
 
+https://stackoverflow.com/questions/60370557/how-can-you-deduct-10-seconds-from-a-running-timer-in-javascript
