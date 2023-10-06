@@ -11,6 +11,15 @@ header {
     font-size: 35px;
 }
 
+.high-score-page {
+    display: flex;
+    justify-content: center;
+}
+
+.high-score-page > h1 {
+    font-size: 50px;
+}
+
 .timer {
     display: flex;
     align-items: center;

@@ -77,6 +77,8 @@ var choiceB
 var choiceC
 var choiceD
 
+var allScores = []
+
 function startGame() {
     beginCountdown()
 
