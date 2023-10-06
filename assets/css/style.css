@@ -41,3 +41,27 @@ header {
     background-color: rgb(77, 77, 77);
     cursor: pointer;
 }
+
+.question-title {
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+
+.multiple-choice {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.choice-buttons {
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    border-radius: 13px;
+}
+
+.choice-buttons:hover {
+    background-color: rgb(77, 77, 77);
+    cursor: pointer;
+}
