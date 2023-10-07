@@ -222,8 +222,35 @@ function endGame() {
     choiceD.remove()
     questionTitle.textContent = "Your score is: " + score
 
+
+
+
+    // ADD FORM TO SAVE SCORE HERE
+    var scoresForm = document.createElement("input")
+    var scoresButton = document.createElement("button")
+    scoresForm.setAttribute("type", "text")
+    scoresForm.setAttribute("id", "username")
+    scoresForm.setAttribute("class", "initials")
+    scoresForm.setAttribute("placeholder", "Enter your name...")
+    scoresButton.setAttribute("class", "initials")
+    scoresButton.textContent = "Save Score"
+    multipleChoice.appendChild(scoresForm)
+    multipleChoice.appendChild(scoresButton)
+
+    scoresButton.addEventListener('click', function(event) {
+        // On click, save score and name to local storage
+        // Might have to save into an array to save multiple set of data
+        localStorage.setItem("name", scoresForm.value)
+        localStorage.setItem("score", score)
+
+    })
+
+
+
+
     var returnHome = document.createElement("button")
     returnHome.setAttribute("class", "choice-buttons")
+    returnHome.setAttribute("id", "return-home-button")
     returnHome.textContent = "Return Home"
     multipleChoice.appendChild(returnHome)
 

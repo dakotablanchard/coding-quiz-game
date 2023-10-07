@@ -38,3 +38,6 @@ https://stackoverflow.com/questions/43118645/get-length-of-nested-javascript-obj
 https://stackoverflow.com/questions/60370557/how-can-you-deduct-10-seconds-from-a-running-timer-in-javascript
 
 https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
+
+https://www.freecodecamp.org/news/how-to-submit-a-form-with-javascript/
+
