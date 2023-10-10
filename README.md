@@ -4,7 +4,7 @@ Do you want to test your knowledge of JavaScript fundamentals?
 <br>
 Do you want to be able to save your score and compare it to your friends?
 <br>
-Cick [here](link) to launch the JavaScript Quiz Game
+Cick [here](https://dakotablanchard.github.io/coding-quiz-game/) to launch the JavaScript Quiz Game
 
 ## How to play
 
