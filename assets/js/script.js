@@ -79,6 +79,8 @@ var choiceD
 
 var allScores = []
 
+allScores = JSON.parse(localStorage.getItem("Scores"))
+
 function startGame() {
     beginCountdown()
 
@@ -252,7 +254,7 @@ function resetGame() {
 }
 
 function storeScores() {
-
+    
     var scoresForm = document.createElement("input")
     var scoresButton = document.createElement("button")
     scoresForm.setAttribute("type", "text")
@@ -264,12 +266,12 @@ function storeScores() {
     scoresButton.textContent = "Save Score"
     multipleChoice.appendChild(scoresForm)
     multipleChoice.appendChild(scoresButton)
-
+    
     
     var localStorageScore = JSON.stringify(score)
-
+    
     scoresButton.addEventListener('click', function(event) {
-
+        
         event.preventDefault()
         // On click, save score and name to local storage
         // Might have to save into an array to save multiple set of data
@@ -278,16 +280,17 @@ function storeScores() {
             "Name": scoresForm.value,
             "Score": score.toString()
         }
-
+        
         allScores.push(saveScores)
 
         localStorage.setItem("Scores", JSON.stringify(allScores))
 
         var scoreSaved = document.createElement("p")
-
+        
         scoreSaved.textContent = "Your score has been saved!"
-
+        
         multipleChoice.appendChild(scoreSaved)
-
+        
+        
     })
 }
