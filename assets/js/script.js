@@ -226,24 +226,7 @@ function endGame() {
 
 
     // ADD FORM TO SAVE SCORE HERE
-    var scoresForm = document.createElement("input")
-    var scoresButton = document.createElement("button")
-    scoresForm.setAttribute("type", "text")
-    scoresForm.setAttribute("id", "username")
-    scoresForm.setAttribute("class", "initials")
-    scoresForm.setAttribute("placeholder", "Enter your name...")
-    scoresButton.setAttribute("class", "initials")
-    scoresButton.textContent = "Save Score"
-    multipleChoice.appendChild(scoresForm)
-    multipleChoice.appendChild(scoresButton)
-
-    scoresButton.addEventListener('click', function(event) {
-        // On click, save score and name to local storage
-        // Might have to save into an array to save multiple set of data
-        localStorage.setItem("name", scoresForm.value)
-        localStorage.setItem("score", score)
-
-    })
+    storeScores()
 
 
 
@@ -266,4 +249,45 @@ function resetGame() {
     multipleChoice.textContent = ""
 
     homeScreen.setAttribute("style", "flex")
+}
+
+function storeScores() {
+
+    var scoresForm = document.createElement("input")
+    var scoresButton = document.createElement("button")
+    scoresForm.setAttribute("type", "text")
+    scoresForm.setAttribute("id", "username")
+    scoresForm.setAttribute("class", "initials")
+    scoresForm.setAttribute("placeholder", "Enter your name...")
+    scoresButton.setAttribute("class", "initials")
+    scoresButton.setAttribute("id", "score-btn")
+    scoresButton.textContent = "Save Score"
+    multipleChoice.appendChild(scoresForm)
+    multipleChoice.appendChild(scoresButton)
+
+    
+    var localStorageScore = JSON.stringify(score)
+
+    scoresButton.addEventListener('click', function(event) {
+
+        event.preventDefault()
+        // On click, save score and name to local storage
+        // Might have to save into an array to save multiple set of data
+        
+        var saveScores = {
+            "Name": scoresForm.value,
+            "Score": score.toString()
+        }
+
+        allScores.push(saveScores)
+
+        localStorage.setItem("Scores", JSON.stringify(allScores))
+
+        var scoreSaved = document.createElement("p")
+
+        scoreSaved.textContent = "Your score has been saved!"
+
+        multipleChoice.appendChild(scoreSaved)
+
+    })
 }

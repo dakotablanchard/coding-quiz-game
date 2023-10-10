@@ -41,3 +41,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
 
 https://www.freecodecamp.org/news/how-to-submit-a-form-with-javascript/
 
+https://stackoverflow.com/questions/979256/sorting-an-array-of-objects-by-property-values

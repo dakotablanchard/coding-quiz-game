@@ -12,13 +12,31 @@
     </header>
     <section class= "high-score-page">
         <h1>High Scores</h1>
+        <ol class="scores-list">
+
+        </ol>
     </section>
 
-
-
     <script>
-        console.log(localStorage.getItem("name"))
-        console.log(localStorage.getItem("score"))
+
+        // Array of stored names and scores:
+        var myScores = JSON.parse(localStorage.getItem("Scores"))
+        
+        // HTML ordered list element:
+        var highScoreList = document.querySelector(".scores-list")
+        
+        // Sorts array in decending order:
+        myScores = myScores.sort(function(a, b) {
+            return parseFloat(b.Score) - parseFloat(a.Score)
+        })
+
+        // For loop prints each saved score to the page:
+        for (let i = 0; i < myScores.length; i++) {
+            var highScoreItem = document.createElement("li")
+            highScoreItem.textContent = myScores[i].Name + " " + myScores[i].Score
+            highScoreList.appendChild(highScoreItem)
+        }
+
     </script>
 </body>
 </html>

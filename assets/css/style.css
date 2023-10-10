@@ -7,7 +7,9 @@
 
 header {
     padding-bottom: 50px;
+    text-align: center;
     display: flex;
+    align-items: baseline;
     justify-content: space-between;
     font-size: 35px;
 }
@@ -28,6 +30,7 @@ header {
 
 
 .home-screen {
+    text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -64,6 +67,10 @@ header {
     flex-direction: column;
 }
 
+.multiple-choice > p {
+    font-size: 20px;
+}
+
 .initials {
     display: flex;
     padding: 10px;
@@ -82,4 +89,84 @@ header {
 .choice-buttons:hover {
     background-color: rgb(77, 77, 77);
     cursor: pointer;
+}
+
+.high-score-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.scores-list > li {
+    font-size: 30px;
+}
+
+@media (max-width: 816px) {
+    .question-title {
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .choice-buttons {
+        width: 40%;
+        padding: 25px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 626px) {
+    .choice-buttons {
+        width: 60%;
+        padding: 25px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 436px) {
+    .choice-buttons {
+        width: 80%;
+        padding: 25px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 463px) {
+    header {
+        padding-bottom: 50px;
+        font-size: 25px;
+    }
+
+    .home-screen > h1 {
+        font-size: 40px;
+    }
+    
+    .home-screen > p {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 391px) {
+    .home-screen > h1 {
+        font-size: 30px;
+    }
+    
+    .home-screen > p {
+        font-size: 25px;
+    }
+
+}
+
+@media (max-width: 344px) {
+    header {
+        padding-bottom: 50px;
+        font-size: 20px;
+    }
+
+    .choice-buttons {
+        width: 100%;
+        padding: 25px;
+        font-size: 30px;
+    }
 }
